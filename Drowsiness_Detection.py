@@ -3,7 +3,7 @@ import sys
 from scipy.spatial import distance
 from imutils import face_utils
 import imutils
-import dlib
+# import dlib
 import cv2
 import subprocess
 
@@ -35,8 +35,8 @@ def detect(i) :
 
 	thresh = 0.15
 	frame_check = 10
-	detect = dlib.get_frontal_face_detector()
-	predict = dlib.shape_predictor("models/shape_predictor_68_face_landmarks.dat")# Dat file is the crux of the code
+	# detect = dlib.get_frontal_face_detector()
+	# predict = dlib.shape_predictor("models/shape_predictor_68_face_landmarks.dat")# Dat file is the crux of the code
 
 	(lStart, lEnd) = face_utils.FACIAL_LANDMARKS_68_IDXS["left_eye"]
 	(rStart, rEnd) = face_utils.FACIAL_LANDMARKS_68_IDXS["right_eye"]
@@ -51,7 +51,7 @@ def detect(i) :
 			gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 			subjects = detect(gray, 0)
 			for subject in subjects:
-				shape = predict(gray, subject)
+				# shape = predict(gray, subject)
 				shape = face_utils.shape_to_np(shape)#converting to NumPy Array
 				leftEye = shape[lStart:lEnd]
 				rightEye = shape[rStart:rEnd]
