@@ -5,7 +5,6 @@ from PyQt5 import QtCore, QtWidgets, QtGui
 from PyQt5.QtGui import QMovie
 
 
-
 class Sticker(QtWidgets.QMainWindow):
     def __init__(self, img_path, xy, size=1.0, on_top=False):
         super(Sticker, self).__init__()
@@ -35,7 +34,7 @@ class Sticker(QtWidgets.QMainWindow):
 
     # 마우스 눌렀을 때
     def mousePressEvent(self, a0: QtGui.QMouseEvent):
-        QtWidgets.qApp.quit()
+        self.close()
 
     # 드래그 할 때
     def mouseMoveEvent(self, a0: QtGui.QMouseEvent):

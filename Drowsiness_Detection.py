@@ -1,15 +1,17 @@
 import sys
+import random
 
 from scipy.spatial import distance
 from imutils import face_utils
 import imutils
-# import dlib
+import dlib
 import cv2
-import subprocess
 
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
+
+from Sticker import Sticker
 
 db_url = 'https://studium-28d4b-default-rtdb.firebaseio.com/'
 
@@ -31,12 +33,12 @@ def eye_aspect_ratio(eye):
 	return ear
 
 # detect drowsiness
-def detect(i) :
+def detect() :
 
 	thresh = 0.15
 	frame_check = 10
-	# detect = dlib.get_frontal_face_detector()
-	# predict = dlib.shape_predictor("models/shape_predictor_68_face_landmarks.dat")# Dat file is the crux of the code
+	detect = dlib.get_frontal_face_detector()
+	predict = dlib.shape_predictor("models/shape_predictor_68_face_landmarks.dat")# Dat file is the crux of the code
 
 	(lStart, lEnd) = face_utils.FACIAL_LANDMARKS_68_IDXS["left_eye"]
 	(rStart, rEnd) = face_utils.FACIAL_LANDMARKS_68_IDXS["right_eye"]
@@ -51,7 +53,7 @@ def detect(i) :
 			gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 			subjects = detect(gray, 0)
 			for subject in subjects:
-				# shape = predict(gray, subject)
+				shape = predict(gray, subject)
 				shape = face_utils.shape_to_np(shape)#converting to NumPy Array
 				leftEye = shape[lStart:lEnd]
 				rightEye = shape[rStart:rEnd]
@@ -85,3 +87,5 @@ def detect(i) :
 		print("test")
 	cv2.destroyAllWindows()
 	cap.release()
+	return 1
+
