@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>875</width>
-    <height>645</height>
+    <width>961</width>
+    <height>704</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>40</y>
+     <x>110</x>
+     <y>60</y>
      <width>751</width>
      <height>231</height>
     </rect>
@@ -28,23 +28,7 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>30</y>
-      <width>131</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="text">
-     <string>이름</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="EditButton1">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -53,33 +37,18 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>IM혜민 Bold</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string>편집</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>500</x>
-      <y>30</y>
-      <width>221</width>
-      <height>181</height>
-     </rect>
-    </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
-    </property>
-    <property name="text">
-     <string>목표</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="EditButton2">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -88,27 +57,18 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>IM혜민 Bold</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string>편집</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>100</y>
-      <width>131</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="text">
-     <string>이름</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="EditButton3">
     <property name="geometry">
      <rect>
       <x>400</x>
@@ -117,27 +77,18 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>IM혜민 Bold</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
      <string>편집</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>170</y>
-      <width>131</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="text">
-     <string>이름</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QGraphicsView" name="MyPicture">
     <property name="geometry">
      <rect>
       <x>40</x>
@@ -146,25 +97,53 @@
       <height>181</height>
      </rect>
     </property>
-    <property name="layoutDirection">
-     <enum>Qt::LeftToRight</enum>
+   </widget>
+   <widget class="QTextBrowser" name="Name">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>30</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
     </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
+   </widget>
+   <widget class="QTextBrowser" name="Email">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>100</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
     </property>
-    <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
+   </widget>
+   <widget class="QTextBrowser" name="NickName">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>170</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
     </property>
-    <property name="text">
-     <string>목표</string>
+   </widget>
+   <widget class="QTextEdit" name="GoalTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>30</y>
+      <width>221</width>
+      <height>181</height>
+     </rect>
     </property>
    </widget>
   </widget>
   <widget class="QFrame" name="frame_2">
    <property name="geometry">
     <rect>
-     <x>60</x>
-     <y>290</y>
+     <x>110</x>
+     <y>310</y>
      <width>751</width>
      <height>241</height>
     </rect>
@@ -175,7 +154,7 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QGraphicsView" name="graphicsView">
+   <widget class="QGraphicsView" name="Progress">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -186,43 +165,64 @@
     </property>
    </widget>
   </widget>
-  <widget class="QToolButton" name="toolButton_2">
+  <widget class="QToolButton" name="CancelButton">
    <property name="geometry">
     <rect>
-     <x>740</x>
-     <y>580</y>
+     <x>790</x>
+     <y>600</y>
      <width>81</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>IM혜민 Bold</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="text">
     <string>취소</string>
    </property>
   </widget>
-  <widget class="QToolButton" name="toolButton">
+  <widget class="QToolButton" name="BackButton">
    <property name="geometry">
     <rect>
-     <x>640</x>
-     <y>580</y>
+     <x>90</x>
+     <y>600</y>
      <width>81</width>
      <height>31</height>
     </rect>
    </property>
-   <property name="text">
-    <string>저장</string>
-   </property>
-  </widget>
-  <widget class="QToolButton" name="toolButton_3">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>580</y>
-     <width>81</width>
-     <height>31</height>
-    </rect>
+   <property name="font">
+    <font>
+     <family>IM혜민 Bold</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="text">
     <string>뒤로가기</string>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="SaveButton">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>600</y>
+     <width>81</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>IM혜민 Bold</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>저장</string>
    </property>
   </widget>
  </widget>

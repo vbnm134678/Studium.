@@ -1,13 +1,20 @@
 import random
 import sys
-
+import time
 from PyQt5 import QtCore, QtWidgets, QtGui
 from PyQt5.QtGui import QMovie
 
+import Timer
+
+
 
 class Sticker(QtWidgets.QMainWindow):
-    def __init__(self, img_path, xy, size=1.0, on_top=False):
+    def __init__(self, img_path, size=1.0, on_top=False):
         super(Sticker, self).__init__()
+        image_x = random.randrange(0, 1800)
+        image_y = random.randrange(0, 950)
+        xy = [image_x, image_y]
+        self.start = time.time()
         self.timer = QtCore.QTimer(self)
         self.img_path = img_path
         self.xy = xy
@@ -35,6 +42,10 @@ class Sticker(QtWidgets.QMainWindow):
     # 마우스 눌렀을 때
     def mousePressEvent(self, a0: QtGui.QMouseEvent):
         self.close()
+        QtWidgets.qApp.quit()
+        # 동작을 수행하기까지의 걸린시간.
+        Timer.time_check(time.time() - self.start)
+
 
     # 드래그 할 때
     def mouseMoveEvent(self, a0: QtGui.QMouseEvent):
@@ -113,17 +124,3 @@ class Sticker(QtWidgets.QMainWindow):
     def mouseDoubleClickEvent(self, e):
         QtWidgets.qApp.quit()
 
-
-def main_s(i):
-    app = QtWidgets.QApplication(sys.argv)
-
-    t = i
-
-    image_x = random.randrange(0, 1800)
-    image_y = random.randrange(0, 950)
-    sticker = Sticker('monster.png', xy=[image_x, image_y], size=2.0, on_top=True)
-
-    if (t == 1):
-        s = Sticker('left.gif', xy=[-80, 200], on_top=False)
-
-    app.exec_()

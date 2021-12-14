@@ -2,12 +2,13 @@ import sys
 
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
-from timer import Timer
-from Info import Info
 
+from Timer import Timer
+from Info import Info
+from Quest import Quest
 form_class = uic.loadUiType("Main.ui")[0]
 
-
+# Main ui
 class MainWindow(QMainWindow, QWidget, form_class):
     def __init__(self):
         super().__init__()
@@ -17,28 +18,30 @@ class MainWindow(QMainWindow, QWidget, form_class):
 
     def initUI(self):
         self.setupUi(self)
-        self.toolButton.clicked.connect(self.bf1)
-        self.toolButton_2.clicked.connect(self.bf2)
-        self.toolButton_3.clicked.connect(self.bf3)
-        self.toolButton_4.clicked.connect(self.bf4)
+        self.StartButton.clicked.connect(self.start)
+        self.GoalButton.clicked.connect(self.goal)
+        self.InfoButton.clicked.connect(self.info)
+        self.OptionButton.clicked.connect(self.option)
 
-    def bf1(self):
+    def start(self):
         self.hide()
-        self.timer=Timer()
-        self.timer.exec()
+        self.Timer=Timer()
+        self.Timer.exec()
         self.show()
-        #Sticker.main_s(0) -> 이건 아마 ui넘어가는 거로 시도해보면 해결가능할수도.
 
-    def bf2(self):
-        print("bt2")
+    def goal(self):
+        self.hide()
+        self.Quest = Quest()
+        self.Quest.exec()
+        self.show()
 
-    def bf3(self):
+    def info(self):
         self.hide()
         self.Info = Info()
         self.Info.exec()
         self.show()
 
-    def bf4(self):
+    def option(self):
         print("bt4")
 
 if __name__ == "__main__":

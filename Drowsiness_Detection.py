@@ -7,24 +7,6 @@ import imutils
 import dlib
 import cv2
 
-import firebase_admin
-from firebase_admin import credentials
-from firebase_admin import db
-
-from Sticker import Sticker
-
-db_url = 'https://studium-28d4b-default-rtdb.firebaseio.com/'
-
-cred = credentials.Certificate('studium-28d4b-firebase-adminsdk-94egj-795b3ae3e7.json')
-default_app = firebase_admin.initialize_app(cred, {'databaseURL' : db_url})
-# 데이터 update
-ref = db.reference()
-#  ref.update({'test' : {'time' : 0}})
-# 데이터 읽기
-ref2 = db.reference('test/time')
-time = ref2.get()
-
-
 def eye_aspect_ratio(eye):
 	A = distance.euclidean(eye[1], eye[5])
 	B = distance.euclidean(eye[2], eye[4])
@@ -44,8 +26,8 @@ def detect() :
 	(rStart, rEnd) = face_utils.FACIAL_LANDMARKS_68_IDXS["right_eye"]
 	cap=cv2.VideoCapture(0, cv2.CAP_DSHOW)
 	flag=0
-
-	time = 0
+	re = 0
+	sleep_time = 0
 	try:
 		while True:
 			ret, frame=cap.read()
@@ -66,26 +48,30 @@ def detect() :
 				cv2.drawContours(frame, [rightEyeHull], -1, (0, 255, 0), 1)
 				if ear < thresh:
 					flag += 1
-					print (flag)
 					if flag >= frame_check:
 						cv2.putText(frame, "****************ALERT!****************", (10, 30),
 							cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 						cv2.putText(frame, "****************ALERT!****************", (10,325),
 							cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 						#print ("Drowsy")
-						time+=1
+						sleep_time+=1
 				else:
 					flag = 0
 			# 경고 3번시 break
-			if time==3:
+			if sleep_time==3:
+				re = 1
 				break
+
 			cv2.imshow("Frame", frame)
 			key = cv2.waitKey(1) & 0xFF
+
 			if key == ord("q"): # q 를 누르면 종료
+				re = 0
 				break
 	except KeyboardInterrupt:
 		print("test")
+
 	cv2.destroyAllWindows()
 	cap.release()
-	return 1
 
+	return re
