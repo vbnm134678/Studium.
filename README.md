@@ -1,2 +1,4 @@
 # Studium.
-Sehyuk Lim  Younsu Kim  Seunggyu Lee
+Sehyuk Lim  
+Younsu Kim  
+Seunggyu Lee
